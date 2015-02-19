@@ -1,0 +1,24 @@
+Robot HyL
+
+Frames {
+	fr_base
+    , fr_slider
+    , fr_hipassembly
+    , fr_upperleg
+    , fr_lowerleg
+    , fr_foot
+	, fr_SLIDE
+    , fr_HAA
+    , fr_HFE
+    , fr_KFE
+}
+
+Transforms {
+    base=fr_base,        target=fr_foot
+    base=fr_slider,      target=fr_foot
+    base=fr_hipassembly, target=fr_foot
+}
+
+Jacobians {
+    base=fr_slider, target=fr_foot
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<robot name="hyl" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<!-- The following included files set up definitions of parts of the robot body -->
+	<xacro:include filename="$(find hyl_description)/urdfs/common_gazebo.xacro"/>
+	<!-- HyL support -->
+	<xacro:include filename="$(find hyl_description)/urdfs/support/support.urdf.xacro"/>
+
+	<!-- HyL Leg -->
+	<xacro:include filename="$(find hyl_description)/urdfs/leg/leg.urdf.xacro"/>
+
+	<!-- generic simulator_gazebo plugins for starting mechanism control, ros time -->
+	<xacro:include filename="$(find hyl_description)/gazebo/gazebo.urdf.xacro"/>
+
+	<!-- Now we can start using the macros included above to define the actual HyQ -->
+
+	<!-- The first use of a macro. This one was defined in trunk.urdf.xacro above.
+A macro like this will expand to a set of link and joint definitions, and to additional
+Gazebo-related extensions (sensor plugins, etc). The macro takes an argument, name,
+that equals "base", and uses it to generate names for its component links and joints
+(e.g., base_link). The included origin block is also an argument to the macro. By convention,
+the origin block defines where the component is w.r.t its parent (in this case the parent
+is the world frame). For more, see http://www.ros.org/wiki/xacro -->
+
+	<!-- body -->
+	<!-- trunk -->
+	<xacro:hyl_support name="base" />
+
+	<!-- LF leg -->
+	<xacro:hyl_leg
+		name="lf"
+		parent="support"
+		reflect_upper="1"
+		reflect_front="1">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</xacro:hyl_leg>
+
+</robot>

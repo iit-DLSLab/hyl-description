@@ -1,0 +1,13 @@
+<launch>
+
+	<arg name="simulation" default="false"/>
+
+	<!-- send HyL urdf to param server -->
+	<group if="$(arg simulation)">
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl_gazebo.urdf.xacro'"/>
+	</group>
+	<group unless="$(arg simulation)">
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro'"/>
+	</group>
+
+</launch>

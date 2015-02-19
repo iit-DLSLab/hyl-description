@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+	<!-- Things that are needed only for Gazebo (not the physical robot). These include sensor and controller plugin specifications -->
+<!--	<xacro:include filename="$(find hyl_description)/urdfs/trunk/support.gazebo.xacro"/>-->
+
+
+	<!-- =============================== Support =============================== -->
+	<!-- The xacro macro xacro:hyl_support contains: support of HyL -->
+	<xacro:macro name="hyl_support" params="name">
+
+		<!-- Floating-base Joint -->
+		<joint name="support_joint" type="fixed">
+			<origin xyz="0 0 0.85" rpy="0 0 0"/>
+			<parent link="${name}_link"/>
+			<child link="support"/>
+		</joint>
+
+		<!-- Links -->
+		<!-- Footprint link -->
+		<link name="${name}_link">
+			<visual>
+				<geometry>
+					<cylinder length="0.01" radius="0.01"/>
+				</geometry>
+			</visual>
+		</link>
+		<!-- Trunk link -->
+		<link name="support">
+			<inertial>
+				<origin xyz="0 0 -0.575"/>
+				<mass value="5000"/>
+				<inertia ixx="25000" iyy="25000" izz="25000" ixy="0" ixz="0" iyz="0"/>
+			</inertial>
+			<collision>
+				<origin xyz="0 0 -0.575" rpy="0 0 0" />
+				<geometry>
+					<box size="0.12 0.045 1.15" />
+<!--					<mesh filename="package://hyq_description/meshes/trunk/trunk_frame.dae" scale="1 1 1"/>-->
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 -0.575" rpy="0 0 0" />
+				<geometry>
+					<box size="0.12 0.045 1.15" />
+<!--					<mesh filename="package://hyq_description/meshes/trunk/trunk_frame.dae" scale="1 1 1"/>-->
+				</geometry>
+			</visual>
+		</link>
+
+		<!-- Extensions -->
+<!--		<xacro:trunk_gazebo name="trunk"/>-->
+
+	</xacro:macro>
+
+</robot>
