@@ -93,6 +93,18 @@
 				<inertia ixx="${ixx_hipassembly}" iyy="${iyy_hipassembly}" izz="${izz_hipassembly}"
 						 ixy="${ixy_hipassembly}" ixz="${ixz_hipassembly}" iyz="${iyz_hipassembly}"/>
 			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+				</geometry>
+			</collision>
 		</link>
 		<!-- Upper leg link -->
 		<link name="upperleg">
