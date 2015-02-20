@@ -14,7 +14,7 @@ link slider {
 	id = 1
 	inertia_params {
 		mass = 10.0
-		CoM = (0.0, 0.00, 0.0)
+		CoM = (0.0, 0.0, 0.0)
 		Ix=1.0	Iy=1.0	Iz=1.0	Ixy=0.0	Ixz=0.0	Iyz=0.0
 	}
 
