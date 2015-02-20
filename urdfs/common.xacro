@@ -10,14 +10,6 @@
 	<property name="d_p1p2" value="0.35"/>
 
 	<!-- Inertial values -->
-	<!-- Trunk with hydraulic system -->
-	<property name="m_trunk" value="53.0"/>
-	<property name="ixx_trunk" value="1.26"/>
-	<property name="iyy_trunk" value="6.56"/>
-	<property name="izz_trunk" value="6.69"/>
-	<property name="ixy_trunk" value="0.03"/>
-	<property name="ixz_trunk" value="-0.06"/>
-	<property name="iyz_trunk" value="-0.03"/>
 	<!-- Hip assembly leg -->
 	<property name="xcom_hipassembly" value="0.03951"/>
 	<property name="ycom_hipassembly" value="0.00023"/>
