@@ -23,15 +23,9 @@
 			<dynamics damping="0" friction="0" />
 		</joint>
 		<!-- Hip assembly joint -->
-		<joint name="assembly_joint" type="fixed">
-			<origin xyz="0 ${d_lr/2} 0" rpy="0 ${PI/2} ${PI}"/>
-			<parent link="slider"/>
-			<child  link="assembly"/>
-		</joint>
-		<!-- Virtual hip joint assembly -->
 		<joint name="haa_joint" type="revolute">
-			<origin xyz="0 0 0" rpy="0 0 0"/> 
-			<parent link="assembly"/>
+			<origin xyz="0 ${d_lr/2} 0" rpy="0 ${PI/2} ${PI}"/> 
+			<parent link="slider"/>
 			<child  link="hipassembly"/>
 			<limit effort="150.0" velocity="12.0" lower="${-PI/2}" upper="${PI/6}"/>
 			<axis xyz="0 0 1"/>
@@ -71,14 +65,6 @@
 		<!-- Links -->
 		<!-- Slider link -->
 		<link name="slider">
-			<inertial>
-				<origin xyz="0 0 0"/>
-				<mass value="0.01"/>
-				<inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.0" ixz="0.0" iyz="0.0"/>
-			</inertial>
-		</link>
-		<!-- Leg assembly link -->
-		<link name="assembly">
 			<inertial>
 				<origin xyz="0 0 0"/>
 				<mass value="0.01"/>
