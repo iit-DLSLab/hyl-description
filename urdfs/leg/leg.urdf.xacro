@@ -105,13 +105,13 @@
 			<visual> 
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/upper.dae" scale="1 1 1"/>
+					<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
 				</geometry>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/upper.dae" scale="1 1 1"/>
+					<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
 				</geometry>
 			</collision>
 		</link>
@@ -125,13 +125,13 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/lower.dae" scale="1 1 1"/>
+					<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
 				</geometry>
 				<material name="white"/>
 			</visual>
 			<collision>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/lower.dae" scale="1 1 1"/>
+					<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
 				</geometry>
 			</collision>
 		</link>
