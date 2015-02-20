@@ -6,13 +6,18 @@
 
 	<!-- =============================== Support =============================== -->
 	<!-- The xacro macro xacro:hyl_support contains: support of HyL -->
-	<xacro:macro name="hyl_support">
+	<xacro:macro name="hyl_support" params="parent">
+		<joint name="${parent}_joint" type="fixed">
+			<parent link="${parent}"/>
+			<child link="base_link"/>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+		</joint>
 
 		<link name="base_link">
 			<inertial>
 				<origin xyz="0 0 0"/>
-				<mass value="5000"/>
-				<inertia ixx="25000" iyy="25000" izz="25000" ixy="0" ixz="0" iyz="0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" ixz="0" iyz="0"/>
 			</inertial>
 			<collision>
 				<origin xyz="0 0 0.575" rpy="0 0 0" />

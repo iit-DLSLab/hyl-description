@@ -23,9 +23,9 @@ that equals "base", and uses it to generate names for its component links and jo
 the origin block defines where the component is w.r.t its parent (in this case the parent
 is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
-	<!-- body -->
-	<!-- trunk -->
-	<xacro:hyl_support/>
+	<!-- support -->
+	<link name="world"/>
+	<xacro:hyl_support parent="world"/>
 
 	<!-- leg -->
 	<xacro:hyl_leg parent="base_link">
