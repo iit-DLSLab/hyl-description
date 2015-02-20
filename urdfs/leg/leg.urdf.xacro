@@ -10,60 +10,59 @@
 
 	<!-- ================================== Leg ================================== -->
 	<!-- The xacro macro xacro:hyl_leg contains: slider upper and lower leg -->
-	<xacro:macro name="hyl_leg" params="name parent *origin reflect_upper reflect_front">
+	<xacro:macro name="hyl_leg" params="parent *origin reflect_upper reflect_front">
 
 		<!-- Joints -->
 		<!-- Slider joint -->
-		<joint name="slider_z_joint" type="prismatic">
+		<joint name="slider_joint" type="prismatic">
 			<insert_block name="origin"/>
 			<parent link="${parent}"/>
 			<child  link="slider"/>
-			<limit effort="1000.0" velocity="1.0" lower="-0.1" upper="0.1"/>
+			<limit effort="100000.0" velocity="100.0" lower="-0.60" upper="0.5"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
-			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
 		</joint>
 		<!-- Hip assembly joint -->
-		<joint name="${name}_assembly_joint" type="fixed">
-			<origin xyz="0 ${-d_lr/2} 0" rpy="0 ${PI/2} ${PI}"/>
+		<joint name="assembly_joint" type="fixed">
+			<origin xyz="0 ${d_lr/2} 0" rpy="0 ${PI/2} ${PI}"/>
 			<parent link="slider"/>
-			<child  link="${name}_assembly"/>
+			<child  link="assembly"/>
 		</joint>
 		<!-- Virtual hip joint assembly -->
-		<joint name="${name}_haa_joint" type="revolute">
+		<joint name="haa_joint" type="revolute">
 			<origin xyz="0 0 0" rpy="0 0 0"/> 
-			<parent link="${name}_assembly"/>
-			<child  link="${name}_virtual_assembly"/>
+			<parent link="assembly"/>
+			<child  link="hipassembly"/>
 			<limit effort="200.0" velocity="1000.0" lower="${-PI/2}" upper="${PI/6}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
 			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
 		</joint>
 		<!-- Upper leg joint -->
-		<joint name="${name}_hfe_joint" type="revolute">
+		<joint name="hfe_joint" type="revolute">
 			<origin xyz="${d_tbb} 0.0 0.0" rpy="${reflect_upper*PI/2} ${-1*hfe_pos0} 0.0"/>
-			<parent link="${name}_assembly"/>
-			<child  link="${name}_upper_leg"/>
+			<parent link="hipassembly"/>
+			<child  link="upperleg"/>
 			<limit effort="200.0" velocity="1.0" lower="${-(1+reflect_front)*5*PI/36-(1-reflect_front)*7*PI/36-reflect_front*hfe_pos0}" upper="${(1-reflect_front)*5*PI/36+(1+reflect_front)*7*PI/36-reflect_front*hfe_pos0}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
 			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
 		</joint>
 		<!-- Lower leg joint -->
-		<joint name="${name}_kfe_joint" type="revolute">
+		<joint name="kfe_joint" type="revolute">
 			<origin xyz="${d_p1p2} 0.0 0.0" rpy="0.0 0.0 ${reflect_front*kfe_pos0}"/>
-			<parent link="${name}_upper_leg"/>
-			<child  link="${name}_lower_leg"/>
+			<parent link="upperleg"/>
+			<child  link="lowerleg"/>
 			<limit effort="200.0" velocity="1.0" lower="${-(1+reflect_front)*7*PI/18+(1-reflect_front)*PI/18-reflect_front*kfe_pos0}" upper="${(1-reflect_front)*7*PI/18-(1+reflect_front)*PI/18-reflect_front*kfe_pos0}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
 			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
 		</joint>
 		<!-- Foot joint -->
-		<joint name="${name}_foot_joint" type="fixed">
+		<joint name="foot_joint" type="fixed">
 			<origin xyz="0.34 0.0 0.0" rpy="${PI/2} 0.0 ${-PI/2}"/>
-			<parent link="${name}_lower_leg"/>
-			<child  link="${name}_foot"/>
+			<parent link="lowerleg"/>
+			<child  link="foot"/>
 		</joint>
 
 
@@ -76,16 +75,16 @@
 				<inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.0" ixz="0.0" iyz="0.0"/>
 			</inertial>
 		</link>
-		<!-- Hip assembly link -->
-		<link name="${name}_assembly">
+		<!-- Leg assembly link -->
+		<link name="assembly">
 			<inertial>
 				<origin xyz="0.0 0.0 0.0"/>
 				<mass value="0.01"/>
 				<inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.0" ixz="0.0" iyz="0.0"/>
 			</inertial>
 		</link>
-		<!-- Virtual hip assembly link -->
-		<link name="${name}_virtual_assembly">
+		<!-- Hip assembly link -->
+		<link name="hipassembly">
 			<inertial>
 				<origin xyz="0.0 0.0 0.0"/>
 				<mass value="0.01"/>
@@ -93,7 +92,7 @@
 			</inertial>
 		</link>
 		<!-- Upper leg link -->
-		<link name="${name}_upper_leg">
+		<link name="upperleg">
 			<inertial>
 				<origin xyz="0.14796 ${reflect_upper*0.02958} 0.0"/>
 				<mass value="${m_upper}"/>
@@ -113,7 +112,7 @@
 			</collision>
 		</link>
 		<!-- Lower leg link -->
-		<link name="${name}_lower_leg">
+		<link name="lowerleg">
 			<inertial>
 				<origin xyz=" 0.17830  0.00030 -0.00010"/>
 				<mass value="${m_lower}"/>
@@ -132,7 +131,7 @@
 			</collision>
 		</link>
 		<!-- Foot link -->
-		<link name="${name}_foot">
+		<link name="foot">
 			<inertial>
 				<origin xyz="0.0 0.0 0.0"/>
 				<mass value="0.01"/>
@@ -153,8 +152,8 @@
 		</link>
 		
 		<!-- Extensions -->
-		<xacro:leg_transmission name="${name}"/>
-		<xacro:leg_gazebo name="${name}"/>
+		<xacro:leg_transmission/>
+		<xacro:leg_gazebo/>
 	</xacro:macro>
 
 </robot>
