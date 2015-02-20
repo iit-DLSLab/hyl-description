@@ -1,13 +1,10 @@
 <launch>
 
-	<arg name="simulation" default="false"/>
 	<!-- send hyq urdf to param server and spawn it -->
-	<include file="$(find hyl_description)/launch/upload_hyl.launch">
-		<arg name="simulation" value="$(arg simulation)"/>
-	</include>
+	<include file="$(find hyl_description)/launch/upload_hyl.launch"/>
 
 	<arg name="gui" default="True"/>
-	<arg name="rviz_conf" default="$(find hyl_description)/rviz_confs/hyl_model_tf.rviz"/>
+	<arg name="rviz_conf" default="$(find hyl_description)/rviz/hyl_model_tf.rviz"/>
 	
 
 	<!-- publish the joint and robot states -->
