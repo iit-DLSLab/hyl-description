@@ -7,7 +7,7 @@
 	</include>
 
 	<arg name="gui" default="True"/>
-	<arg name="rviz_conf" default="$(find hyq_description)/rviz_confs/hyl_model_tf.rviz"/>
+	<arg name="rviz_conf" default="$(find hyl_description)/rviz_confs/hyl_model_tf.rviz"/>
 	
 
 	<!-- publish the joint and robot states -->
@@ -25,7 +25,7 @@
 	</node>
 
 	<!-- run rviz -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f trunk" respawn="true"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f base_link" respawn="true"/>
 
 </launch>
 

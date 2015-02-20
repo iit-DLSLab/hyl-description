@@ -1,5 +1,5 @@
 <package>
-  <name>hyl-description</name>
+  <name>hyl_description</name>
   <version>0.0.1</version>
   <description>
 	This package contains the description (mechanical, kinematic, visual,
