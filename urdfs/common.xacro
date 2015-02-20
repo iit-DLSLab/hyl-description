@@ -9,10 +9,6 @@
 	<property name="d_tbb" value="0.0825"/>
 	<property name="d_p1p2" value="0.35"/>
 
-	<!-- Initial joint positions -->
-	<property name="hfe_pos0" value="0"/>
-	<property name="kfe_pos0" value="0"/>
-
 	<!-- Inertial values -->
 	<!-- Trunk with hydraulic system -->
 	<property name="m_trunk" value="53.0"/>
