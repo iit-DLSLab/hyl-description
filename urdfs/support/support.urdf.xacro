@@ -6,26 +6,9 @@
 
 	<!-- =============================== Support =============================== -->
 	<!-- The xacro macro xacro:hyl_support contains: support of HyL -->
-	<xacro:macro name="hyl_support" params="name">
+	<xacro:macro name="hyl_support">
 
-		<!-- Floating-base Joint -->
-		<joint name="support_joint" type="fixed">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<parent link="${name}_link"/>
-			<child link="support"/>
-		</joint>
-
-		<!-- Links -->
-		<!-- Footprint link -->
-		<link name="${name}_link">
-			<visual>
-				<geometry>
-					<cylinder length="0.01" radius="0.01"/>
-				</geometry>
-			</visual>
-		</link>
-		<!-- Trunk link -->
-		<link name="support">
+		<link name="base_link">
 			<inertial>
 				<origin xyz="0 0 0"/>
 				<mass value="5000"/>
