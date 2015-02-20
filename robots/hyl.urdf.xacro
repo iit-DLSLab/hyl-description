@@ -27,11 +27,8 @@ is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 	<!-- trunk -->
 	<xacro:hyl_support name="base" />
 
-	<!-- LF leg -->
-	<xacro:hyl_leg
-		parent="support"
-		reflect_upper="1"
-		reflect_front="1">
+	<!-- leg -->
+	<xacro:hyl_leg parent="support">
 		<origin xyz="0 0 0.85" rpy="0 0 0"/>
 	</xacro:hyl_leg>
 

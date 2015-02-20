@@ -10,7 +10,7 @@
 
 	<!-- ================================== Leg ================================== -->
 	<!-- The xacro macro xacro:hyl_leg contains: slider upper and lower leg -->
-	<xacro:macro name="hyl_leg" params="parent *origin reflect_upper reflect_front">
+	<xacro:macro name="hyl_leg" params="parent *origin">
 
 		<!-- Joints -->
 		<!-- Slider joint -->
@@ -40,11 +40,11 @@
 		</joint>
 		<!-- Upper leg joint -->
 		<joint name="hfe_joint" type="revolute">
-			<origin xyz="${d_tbb} 0 0" rpy="${reflect_upper*PI/2} 0 0"/>
+			<origin xyz="${d_tbb} 0 0" rpy="${PI/2} 0 0"/>
 			<parent link="hipassembly"/>
 			<child  link="upperleg"/>
-			<limit effort="200.0" velocity="1.0" lower="${-(1+reflect_front)*5*PI/36-(1-reflect_front)*7*PI/36}"
-				   upper="${(1-reflect_front)*5*PI/36+(1+reflect_front)*7*PI/36}"/>
+			<limit effort="200.0" velocity="1.0" lower="${-10*PI/36}"
+				   upper="${14*PI/36}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
 			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
@@ -54,8 +54,8 @@
 			<origin xyz="${d_p1p2} 0 0" rpy="0 0 0"/>
 			<parent link="upperleg"/>
 			<child  link="lowerleg"/>
-			<limit effort="200.0" velocity="1.0" lower="${-(1+reflect_front)*7*PI/18+(1-reflect_front)*PI/18}"
-				   upper="${(1-reflect_front)*7*PI/18-(1+reflect_front)*PI/18}"/>
+			<limit effort="200.0" velocity="1.0" lower="${-14*PI/18}"
+				   upper="${-2*PI/18}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0.1" friction="0" />
 			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
@@ -97,19 +97,19 @@
 		<!-- Upper leg link -->
 		<link name="upperleg">
 			<inertial>
-				<origin xyz="${xcom_upperleg} ${reflect_upper*ycom_upperleg} ${zcom_upperleg}"/>
+				<origin xyz="${xcom_upperleg} ${ycom_upperleg} ${zcom_upperleg}"/>
 				<mass value="${m_upperleg}"/>
 				<inertia ixx="${ixx_upperleg}" iyy="${iyy_upperleg}" izz="${izz_upperleg}"
 						 ixy="${ixy_upperleg}" ixz="${ixz_upperleg}" iyz="${iyz_upperleg}"/>
 			</inertial>
 			<visual> 
-				<origin xyz="0 0 0" rpy="${(1-reflect_front)*PI/2} 0 0"/>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/upper.dae" scale="1 1 1"/>
 				</geometry>
 			</visual>
 			<collision>
-				<origin xyz="0 0 0" rpy="${(1-reflect_front)*PI/2} 0 0"/>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/upper.dae" scale="1 1 1"/>
 				</geometry>
