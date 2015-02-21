@@ -16,17 +16,6 @@
 			</actuator>
 		</transmission>
     	<!-- Upper leg -->
-		<transmission name="haa_trans">
-			<type>transmission_interface/SimpleTransmission</type>
-			<joint name="haa_joint">
-				<hardwareInterface>EffortJointInterface</hardwareInterface>
-			</joint>
-			<actuator name="haa_motor">
-				<hardwareInterface>EffortJointInterface</hardwareInterface>
-				<mechanicalReduction>1</mechanicalReduction>
-			</actuator>
-		</transmission>
-    	<!-- Upper leg -->
 		<transmission name="hfe_upper_trans">
 			<type>transmission_interface/SimpleTransmission</type>
 			<joint name="hfe_joint">
