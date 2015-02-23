@@ -66,10 +66,23 @@
 		<!-- Trunk link -->
 		<link name="trunk">
 			<inertial>
-				<origin xyz="0 0 0"/>
-				<mass value="0.01"/>
-				<inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.0" ixz="0.0" iyz="0.0"/>
+				<origin xyz="${xcom_trunk} ${ycom_trunk} ${zcom_trunk}"/>
+				<mass value="${m_trunk}"/>
+				<inertia ixx="${ixx_trunk}" iyy="${iyy_trunk}" izz="${izz_trunk}"
+						 ixy="${ixy_trunk}" ixz="${ixz_trunk}" iyz="${iyz_trunk}"/>
 			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="-${PI/2} ${PI} 0"/>
+				<geometry>
+					<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="-${PI/2} ${PI} 0"/>
+				<geometry>
+					<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+				</geometry>
+			</collision>
 		</link>
 		<!-- Hip assembly link -->
 		<link name="hipassembly">
