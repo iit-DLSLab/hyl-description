@@ -6,30 +6,17 @@ Robot HyL {
 		Iy=0.0	Ix=0.0	Ixy=0.0	Iz=0.0	Ixz=0.0	Iyz=0.0
 	}
 	children {
-		slider via SLIDE
+		trunk via SLIDE
 	}
 }
 
-link slider {
+link trunk {
 	id = 1
 	inertia_params {
-		mass = 10.0
-		CoM = (0.0, 0.0, 0.0)
-		Ix=1.0	Iy=1.0	Iz=1.0	Ixy=0.0	Ixz=0.0	Iyz=0.0
-	}
-
-	children {
-		hipassembly via HAA
-	}
-}
-
-link hipassembly {
-	id = 2
-	inertia_params {
-        mass = 2.7754
-        CoM = (0.03951, 0.00023, 0.16045)
-        Ix  = 0.122710    Iy  = 0.130957  Iz  = 0.009731
-        Ixy = 0.000022    Ixz  = 0.018692 Iyz  = 0.000007
+		mass = 3.982
+		CoM = (-0.08315, 0.06849, -0.00654)
+		Ix=0.037131		Iy=0.087473		Iz=0.112496
+		Ixy=0.028543	Ixz=-0.00097	Iyz=0.003392
 	}
 
 	children {
@@ -42,9 +29,7 @@ link upperleg {
 	inertia_params {
 	    mass = 2.06218
         CoM = (0.14925, -0.02996, -0.00005)
-		Ix = 0.00464
-		Iy = 0.07216
-		Iz = 0.07463
+		Ix = 0.00464	Iy = 0.07216	Iz = 0.07463
 		Ixy= -0.00718	Ixz= -0.00001	Iyz= -0.00001
 	}
 
@@ -56,13 +41,10 @@ link upperleg {
 link lowerleg {
 	id = 4
 	inertia_params {
-	    // Parameters taken from HyQ Leg v2.4, inertia params v2.2 (params in the HyQ Leg v2.3 are wrong)
         mass = 0.80669
         CoM = (0.12185, 0.00058, -0.00012)
-		Ix = 0.00042
-		Iy = 0.02202
-		Iz = 0.02183
-		Ixy= 0.0	Ixz= 0.0	Iyz= 0.0
+		Ix = 0.00042	Iy = 0.02202	Iz = 0.02183
+		Ixy= 0.0		Ixz= 0.0		Iyz= 0.0
 	}
 	children {}
 
@@ -82,23 +64,16 @@ p_joint SLIDE {
 	}
 }
 
-r_joint HAA {
-	ref_frame {
-		translation = (0.0, 0.0, 0.0)
-		rotation = (0.0, -PI/2.0, PI)
-	}
-}
-
 r_joint HFE {
 	ref_frame {
-		translation = (0.08, 0.0, 0.0)
-		rotation = (PI/2.0, 0.0, 0.0)
+		translation = (0.0, 0.13, -0.08)
+		rotation = (-PI/2.0, 0.0, PI/2.0)
 	}
 }
 
 r_joint KFE {
 	ref_frame {
-		translation = (0.35, 0.0, 0.0) // (P1P2, 0, 0)
+		translation = (0.35, 0.0, 0.0)
 		rotation = (0.0, 0.0, 0.0)
 	}
 }
