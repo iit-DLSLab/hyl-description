@@ -11,18 +11,18 @@
 
 	<!-- Inertial values -->
 	<!-- Trunk -->
-	<property name="xcom_trunk" value="-0.06532"/>
-	<property name="ycom_trunk" value="0.04079"/>
-	<property name="zcom_trunk" value="-0.01136"/>
-	<property name="m_trunk" value="2.5893"/>
-	<property name="ixx_trunk" value="0.012727"/>
-	<property name="iyy_trunk" value="0.041992"/>
-	<property name="izz_trunk" value="0.047339"/>
-	<property name="ixy_trunk" value="0.008496"/>
-	<property name="ixz_trunk" value="-0.0000107"/>
-	<property name="iyz_trunk" value="0.00000331"/>
+	<property name="xcom_trunk" value="-0.08315"/>
+	<property name="ycom_trunk" value="0.06849"/>
+	<property name="zcom_trunk" value="-0.00654"/>
+	<property name="m_trunk" value="3.982"/>
+	<property name="ixx_trunk" value="0.037131"/>
+	<property name="iyy_trunk" value="0.087473"/>
+	<property name="izz_trunk" value="0.112496"/>
+	<property name="ixy_trunk" value="0.028543"/>
+	<property name="ixz_trunk" value="-0.00097"/>
+	<property name="iyz_trunk" value="0.003392"/>
 	<!-- Hip assembly leg -->
-	<property name="xcom_hipassembly" value="0.03951"/>
+<!--	<property name="xcom_hipassembly" value="0.03951"/>
 	<property name="ycom_hipassembly" value="0.00023"/>
 	<property name="zcom_hipassembly" value="0.16045"/>
 	<property name="m_hipassembly" value="2.7754"/>
@@ -31,7 +31,17 @@
 	<property name="izz_hipassembly" value="0.009731"/>
 	<property name="ixy_hipassembly" value="0.000022"/>
 	<property name="ixz_hipassembly" value="0.018692"/>
-	<property name="iyz_hipassembly" value="0.000007"/>
+	<property name="iyz_hipassembly" value="0.000007"/>-->
+	<property name="xcom_hipassembly" value="0.0"/>
+	<property name="ycom_hipassembly" value="0.0"/>
+	<property name="zcom_hipassembly" value="0.0"/>
+	<property name="m_hipassembly" value="0.001"/>
+	<property name="ixx_hipassembly" value="0.001"/>
+	<property name="iyy_hipassembly" value="0.001"/>
+	<property name="izz_hipassembly" value="0.001"/>
+	<property name="ixy_hipassembly" value="0.0"/>
+	<property name="ixz_hipassembly" value="0.0"/>
+	<property name="iyz_hipassembly" value="0.0"/>
 	<!-- Upper leg -->
 	<property name="xcom_upperleg" value="0.14925"/>
 	<property name="ycom_upperleg" value="-0.02996"/>

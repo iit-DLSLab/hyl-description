@@ -13,8 +13,9 @@ Frames {
 
 Transforms {
     base=fr_base,        target=fr_foot
-    base=fr_trunk,      target=fr_foot
+    base=fr_trunk,       target=fr_foot
 	base=fr_lowerleg,	 target=fr_foot
+    base=fr_foot,        target=fr_lowerleg
 }
 
 Jacobians {
