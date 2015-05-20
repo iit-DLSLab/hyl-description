@@ -30,7 +30,7 @@
 		<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
 	</group>
 
-	<!-- Send hyq urdf to parameter server and spawn it -->
+	<!-- Send hyl urdf to parameter server and spawn it -->
 	<include file="$(find hyl_description)/launch/upload_hyl.launch"/>
 
 	<!-- Spawn a robot into Gazebo -->
