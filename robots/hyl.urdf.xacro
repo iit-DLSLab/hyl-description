@@ -29,7 +29,7 @@ is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
 	<!-- leg -->
 	<xacro:hyl_leg parent="base_link">
-		<origin xyz="0 0.025 0.85" rpy="0 0 0"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
 	</xacro:hyl_leg>
 
 </robot>
