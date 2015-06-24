@@ -12,6 +12,24 @@
 			<maxVel>1.0</maxVel>
 			<minDepth>0.00</minDepth>
 		</gazebo>
+
+		<gazebo reference="foot">
+			<selfCollide>false</selfCollide>
+			<sensor type="contact" name="foot_contact_sensor">
+				<pose>0 0 0 0 0 0</pose>
+				<always_on>true</always_on>
+				<update_rate>100.0</update_rate>
+				<contact>
+					<collision>foot_collision</collision>
+				</contact>
+				<plugin name="foot_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+					<alwaysOn>true</alwaysOn>
+					<updateRate>100.0</updateRate>
+					<bumperTopicName>/hyl/foot_force</bumperTopicName>
+					<frameName>world</frameName>
+				</plugin>
+			</sensor>
+		</gazebo>
 	</xacro:macro>
 
 </robot>
