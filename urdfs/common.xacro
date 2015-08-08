@@ -14,7 +14,7 @@
 	<property name="xcom_trunk" value="-0.08315"/>
 	<property name="ycom_trunk" value="0.06849"/>
 	<property name="zcom_trunk" value="-0.00654"/>
-	<property name="m_trunk" value="3.982"/>
+	<property name="m_trunk" value="7.982"/>
 	<property name="ixx_trunk" value="0.037131"/>
 	<property name="iyy_trunk" value="0.087473"/>
 	<property name="izz_trunk" value="0.112496"/>
