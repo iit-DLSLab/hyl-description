@@ -37,7 +37,7 @@
 				   upper="${14*PI/36}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0" friction="0" />
-			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
+			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="${-10*PI/36}" soft_upper_limit="${14*PI/36}" />
 		</joint>
 		<!-- Lower leg joint -->
 		<joint name="kfe_joint" type="revolute">
@@ -48,7 +48,7 @@
 				   upper="${-2*PI/18}"/>
 			<axis xyz="0 0 1"/>
 			<dynamics damping="0" friction="0" />
-			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="-10" soft_upper_limit="12.45" />
+			<safety_controller k_position="100" k_velocity="100" soft_lower_limit="${-14*PI/18}" soft_upper_limit="${-2*PI/18}" />
 		</joint>
 		<!-- Foot joint -->
 		<joint name="foot_joint" type="fixed">
