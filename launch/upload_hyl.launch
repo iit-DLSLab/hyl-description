@@ -2,5 +2,6 @@
 
 	<!-- send HyL urdf to param server -->
 	<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro'"/>
+	<param name="hyl/robot_model" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro'"/>
 
 </launch>
