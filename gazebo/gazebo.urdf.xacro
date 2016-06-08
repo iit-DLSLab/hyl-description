@@ -5,7 +5,7 @@
 	<gazebo>
 		<plugin name="gazebo_ros_controller_manager" filename="libgazebo_ros_control.so">
 			<robotNamespace>/hyl</robotNamespace>
-			<controlPeriod>0.005</controlPeriod>
+			<controlPeriod>0.004</controlPeriod>
 		</plugin>
 	</gazebo>
 
