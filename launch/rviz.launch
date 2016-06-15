@@ -1,7 +1,8 @@
+<?xml version="1.0" ?>
 <launch>
 
 	<!-- send hyq urdf to param server and spawn it -->
-	<include file="$(find hyl_description)/launch/upload_hyl.launch"/>
+	<include file="$(find hyl_description)/launch/upload.launch"/>
 
 	<arg name="gui" default="True"/>
 	<arg name="rviz_conf" default="$(find hyl_description)/rviz/hyl_model_tf.rviz"/>
