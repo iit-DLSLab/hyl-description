@@ -2,7 +2,50 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<xacro:macro name="leg_gazebo">
+	<xacro:macro name="leg_gazebo" params="load_force_sensors">
+
+		<gazebo reference="slider_joint">
+			<provideFeedback>true</provideFeedback>
+		</gazebo>
+		<xacro:if value="${load_force_sensors}">
+			<gazebo>
+				<plugin name="slider_sensor" filename="libgazebo_ros_ft_sensor.so">
+					<robotNamespace>/hyl/internal_wrench/</robotNamespace>
+					<updateRate>100.0</updateRate>
+					<topicName>slider_joint</topicName>
+					<jointName>slider_joint</jointName>
+				</plugin>
+			</gazebo>
+		</xacro:if>
+
+		<gazebo reference="kfe_joint">
+			<provideFeedback>true</provideFeedback>
+		</gazebo>
+		<xacro:if value="${load_force_sensors}">
+			<gazebo>
+				<plugin name="kfe_sensor" filename="libgazebo_ros_ft_sensor.so">
+					<robotNamespace>/hyl/internal_wrench/</robotNamespace>
+					<updateRate>100.0</updateRate>
+					<topicName>kfe_joint</topicName>
+					<jointName>kfe_joint</jointName>
+				</plugin>
+			</gazebo>
+		</xacro:if>
+
+		<gazebo reference="hfe_joint">
+			<provideFeedback>true</provideFeedback>
+		</gazebo>
+		<xacro:if value="${load_force_sensors}">
+			<gazebo>
+				<plugin name="hfe_sensor" filename="libgazebo_ros_ft_sensor.so">
+					<robotNamespace>/hyl/internal_wrench/</robotNamespace>
+					<updateRate>100.0</updateRate>
+					<topicName>hfe_joint</topicName>
+					<jointName>hfe_joint</jointName>
+				</plugin>
+			</gazebo>
+		</xacro:if>
+
 		<gazebo reference="foot">
 			<kp>1000000.0</kp>
 			<kd>100.0</kd>

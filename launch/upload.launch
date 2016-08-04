@@ -1,11 +1,14 @@
 <?xml version="1.0" ?>
 <launch>
 
+	<!-- Load the sensors that measured the internal wrench in the joints -->
+	<arg name="internal_wrench" default="false"/>
+
 	<!-- send the robot description file -->
 	<param name="/hyl/robot_config" value="$(find hyl_description)/yarf/hyl.yarf"/>
 
 	<!-- send HyL urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro'"/>
-	<param name="hyl/robot_model" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro'"/>
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro' load_force_sensors:=$(arg internal_wrench)"/>
+	<param name="hyl/robot_model" command="$(find xacro)/xacro.py '$(find hyl_description)/robots/hyl.urdf.xacro' load_force_sensors:=$(arg internal_wrench)"/>
 
 </launch>

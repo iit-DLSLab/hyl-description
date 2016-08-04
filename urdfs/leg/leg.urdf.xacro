@@ -10,7 +10,7 @@
 
 	<!-- ================================== Leg ================================== -->
 	<!-- The xacro macro xacro:hyl_leg contains: slider upper and lower leg -->
-	<xacro:macro name="hyl_leg" params="parent *origin">
+	<xacro:macro name="hyl_leg" params="parent *origin load_force_sensors">
 
 		<!-- Joints -->
 		<!-- Slider joint -->
@@ -159,7 +159,7 @@
 		
 		<!-- Extensions -->
 		<xacro:leg_transmission/>
-		<xacro:leg_gazebo/>
+		<xacro:leg_gazebo load_force_sensors="${load_force_sensors}"/>
 	</xacro:macro>
 
 </robot>
