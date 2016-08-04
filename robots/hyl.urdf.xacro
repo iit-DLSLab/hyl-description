@@ -2,8 +2,12 @@
 
 <robot name="hyl" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+	<!-- This argument allows us to load joint sensors that measure the internal wrenches -->
+	<xacro:arg name="load_force_sensors" default="false"/>
+
 	<!-- The following included files set up definitions of parts of the robot body -->
 	<xacro:include filename="$(find hyl_description)/urdfs/common.xacro"/>
+
 	<!-- HyL support -->
 	<xacro:include filename="$(find hyl_description)/urdfs/support/support.urdf.xacro"/>
 
@@ -28,8 +32,8 @@ is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 	<xacro:hyl_support parent="world"/>
 
 	<!-- leg -->
-	<xacro:hyl_leg parent="base_link">
-		<origin xyz="0 0.025 0.85" rpy="0 0 0"/>
+	<xacro:hyl_leg parent="base_link" load_force_sensors="$(arg load_force_sensors)">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
 	</xacro:hyl_leg>
 
 </robot>

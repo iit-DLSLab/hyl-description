@@ -1,5 +1,8 @@
 <launch>
 
+	<!-- Load the sensors that measured the internal wrench in the joints -->
+	<arg name="internal_wrench" default="false"/>
+
 	<!-- These are the arguments you can pass this launch file, for example paused:=true -->
 	<arg name="paused" default="true"/>
 	<arg name="use_sim_time" default="true"/>
@@ -30,8 +33,10 @@
 		<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
 	</group>
 
-	<!-- Send hyq urdf to parameter server and spawn it -->
-	<include file="$(find hyl_description)/launch/upload_hyl.launch"/>
+	<!-- Send hyl urdf to parameter server and spawn it -->
+	<include file="$(find hyl_description)/launch/upload.launch">
+		<arg name="internal_wrench" value="$(arg internal_wrench)" />
+	</include>
 
 	<!-- Spawn a robot into Gazebo -->
 	<node name="spawn_hyl_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model hyl -Y 3.1416"/>
