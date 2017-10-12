@@ -15,7 +15,7 @@
 		<!-- Joints -->
 		<!-- Slider joint -->
 		<joint name="slider_joint" type="prismatic">
-			<insert_block name="origin"/>
+			<xacro:insert_block name="origin"/>
 			<parent link="${parent}"/>
 			<child  link="trunk"/>
 			<limit effort="0.0" velocity="100.0" lower="-0.60" upper="0.5"/>
