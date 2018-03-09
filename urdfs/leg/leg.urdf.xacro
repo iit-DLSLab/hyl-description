@@ -10,7 +10,7 @@
 
 	<!-- ================================== Leg ================================== -->
 	<!-- The xacro macro xacro:hyl_leg contains: slider upper and lower leg -->
-	<xacro:macro name="hyl_leg" params="parent *origin load_force_sensors">
+	<xacro:macro name="hyl_leg" params="parent *origin load_force_sensors stl">
 
 		<!-- Joints -->
 		<!-- Slider joint -->
@@ -70,14 +70,24 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="-${PI/2} ${PI} 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/trunk.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="-${PI/2} ${PI} 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/trunk.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 			</collision>
 		</link>
@@ -92,14 +102,24 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/hipassembly.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/hipassembly.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 			</collision>
 		</link>
@@ -114,14 +134,24 @@
 			<visual> 
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/upperleg.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/upperleg.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 			</collision>
 		</link>
@@ -135,13 +165,23 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/lowerleg.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 				<material name="grey"/>
 			</visual>
 			<collision>
 				<geometry>
-					<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
+					<xacro:if value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/lowerleg.stl" scale="1 1 1"/>
+					</xacro:if>
+					<xacro:unless value="${stl}">
+						<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
+					</xacro:unless>
 				</geometry>
 			</collision>
 		</link>
