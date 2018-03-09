@@ -72,6 +72,7 @@
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/trunk.dae" scale="1 1 1"/>
 				</geometry>
+				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="-${PI/2} ${PI} 0"/>
@@ -93,6 +94,7 @@
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/hipassembly.dae" scale="1 1 1"/>
 				</geometry>
+				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -114,6 +116,7 @@
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/upperleg.dae" scale="1 1 1"/>
 				</geometry>
+				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -134,7 +137,7 @@
 				<geometry>
 					<mesh filename="package://hyl_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
 				</geometry>
-				<material name="white"/>
+				<material name="grey"/>
 			</visual>
 			<collision>
 				<geometry>
@@ -149,6 +152,13 @@
 				<mass value="0.01"/>
 				<inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0"/>
 			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<sphere radius="0.02185"/>
+				</geometry>
+				<material name="black"/>
+			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
